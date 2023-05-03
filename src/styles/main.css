@@ -47,6 +47,8 @@ a {
   display: none;
   font-size: 32px;
   margin: 10px auto;
+  padding: 10px;
+  border: none;
 }
 
 .logo {
@@ -250,7 +252,7 @@ footer p {
 
 @media screen and (max-width: 643px) {
   .nav a {
-    padding: 12px;
+    padding: 14px;
   }
 }
 
