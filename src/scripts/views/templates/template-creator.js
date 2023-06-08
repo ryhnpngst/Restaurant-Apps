@@ -49,7 +49,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
                     <textarea id="review" name="review" placeholder="Masukkan review anda" required></textarea>
                 </div>
                 <div class="form__group">
-                    <button type="submit" class="btn btn__primary">Kirim</button>
+                    <button type="submit" id="submit-review" class="btn btn__primary">Kirim</button>
                 </div>
             </form>
         </div>
@@ -61,7 +61,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="post-item">
-  <img class="post-item__thumbnail" src="${`${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}`}" alt="${restaurant.name}">
+  <img class="post-item__thumbnail lazyload" data-src="${`${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}`}" alt="${restaurant.name}">
   <div class="post-item__content">
     <p class="post-item__rating">Rating: ${restaurant.rating}</p>
     <p class="post-item__city">Kota ${restaurant.city}</p>

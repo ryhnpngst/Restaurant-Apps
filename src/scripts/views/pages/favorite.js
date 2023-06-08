@@ -8,6 +8,7 @@ const Favorite = {
           <div class="restaurant">
             <h1 class="restaurant__label">Explore Restaurant</h1>
             <div id='restaurants' class="posts"></div>
+            <div id="no_favorite_message" class="no_favorite_message" style="display: none;">Tidak ada restaurant favorit</div>
           </div>
         </section>
       `;
@@ -16,10 +17,17 @@ const Favorite = {
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantsContainer = document.querySelector('#restaurants');
+    const noFavoriteMessage = document.querySelector('#no_favorite_message');
 
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-    });
+    if (restaurants.length === 0) {
+      noFavoriteMessage.style.display = 'block';
+    } else {
+      noFavoriteMessage.style.display = 'none';
+
+      restaurants.forEach((restaurant) => {
+        restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+      });
+    }
   },
 };
 

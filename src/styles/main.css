@@ -99,7 +99,7 @@ a {
   height: 400px;
   width: 100%;
   text-align: center;
-  background-image: url("images/heros/hero-image_1.jpg");
+  background-image: url("images/heros/hero-image_1-small.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -422,6 +422,10 @@ footer p {
 }
 
 @media screen and (min-width: 700px) {
+  .hero {
+    background-image: url("images/heros/hero-image_1-large.jpg");
+  }
+
   .posts {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 10px;
