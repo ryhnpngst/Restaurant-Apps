@@ -1,21 +1,20 @@
-import "regenerator-runtime"; /* for async await transpile */
-import "../styles/main.css";
-import "./sw.js";
+import 'regenerator-runtime'; /* for async await transpile */
+import '../styles/main.css';
+import App from './views/app';
+import swRegister from './utils/sw-register';
 
-const menu = document.querySelector("#menu");
-const hero = document.querySelector(".hero");
-const main = document.querySelector("main");
-const drawer = document.querySelector("#drawer");
-
-menu.addEventListener("click", (event) => {
-  drawer.classList.toggle("open");
-  event.stopPropagation();
+const app = new App({
+  button: document.querySelector('#menu'),
+  drawer: document.querySelector('#drawer'),
+  hero: document.querySelector('#hero'),
+  content: document.querySelector('#maincontent'),
 });
 
-hero.addEventListener("click", () => {
-  drawer.classList.remove("open");
+window.addEventListener('hashchange', () => {
+  app.renderPage();
 });
 
-main.addEventListener("click", () => {
-  drawer.classList.remove("open");
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
 });
