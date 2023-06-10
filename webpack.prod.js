@@ -49,6 +49,16 @@ module.exports = merge(common, {
   plugins: [
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          // eslint-disable-next-line prefer-regex-literals
+          urlPattern: new RegExp('https://restaurant-api.dicoding.dev/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'RestaurantCatalogue-V1',
+          },
+        },
+      ],
     }),
     new BundleAnalyzerPlugin(),
   ],
