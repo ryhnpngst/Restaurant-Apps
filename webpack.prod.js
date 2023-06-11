@@ -53,7 +53,7 @@ module.exports = merge(common, {
         {
           // eslint-disable-next-line prefer-regex-literals
           urlPattern: new RegExp('https://restaurant-api.dicoding.dev/'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'RestaurantCatalogue-V1',
           },
